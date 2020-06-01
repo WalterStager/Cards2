@@ -1,0 +1,112 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Lobby/Lobby.gd" type="Script" id=1]
+[ext_resource path="res://Resources/dynamicfont2.tres" type="DynamicFont" id=2]
+
+[node name="Lobby" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 50
+custom_constants/margin_top = 50
+custom_constants/margin_left = 50
+custom_constants/margin_bottom = 50
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuOptions" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 974.0
+margin_bottom = 550.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEditName" type="LineEdit" parent="MarginContainer/MenuOptions"]
+margin_right = 924.0
+margin_bottom = 24.0
+align = 1
+max_length = 20
+placeholder_text = "Enter name here"
+caret_blink = true
+caret_blink_speed = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEditAddr" type="LineEdit" parent="MarginContainer/MenuOptions"]
+margin_top = 28.0
+margin_right = 924.0
+margin_bottom = 52.0
+align = 1
+placeholder_text = "Enter address here"
+
+[node name="ButtonJoinGame" type="Button" parent="MarginContainer/MenuOptions"]
+margin_top = 56.0
+margin_right = 924.0
+margin_bottom = 94.0
+custom_fonts/font = ExtResource( 2 )
+disabled = true
+text = "Join Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonHostGame" type="Button" parent="MarginContainer/MenuOptions"]
+margin_top = 98.0
+margin_right = 924.0
+margin_bottom = 136.0
+custom_fonts/font = ExtResource( 2 )
+disabled = true
+text = "Host Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonStartGame" type="Button" parent="MarginContainer/MenuOptions"]
+margin_top = 140.0
+margin_right = 924.0
+margin_bottom = 178.0
+custom_fonts/font = ExtResource( 2 )
+disabled = true
+text = "Start Game"
+
+[node name="LabelNumPlayers" type="Label" parent="MarginContainer/MenuOptions"]
+margin_top = 182.0
+margin_right = 924.0
+margin_bottom = 214.0
+custom_fonts/font = ExtResource( 2 )
+text = "Players: 0"
+align = 1
+
+[node name="LabelListPlayers" type="Label" parent="MarginContainer/MenuOptions"]
+margin_top = 218.0
+margin_right = 924.0
+margin_bottom = 250.0
+custom_fonts/font = ExtResource( 2 )
+align = 1
+
+[node name="LabelAddress" type="Label" parent="MarginContainer/MenuOptions"]
+margin_top = 254.0
+margin_right = 924.0
+margin_bottom = 286.0
+custom_fonts/font = ExtResource( 2 )
+autowrap = true
+[connection signal="text_entered" from="MarginContainer/MenuOptions/LineEditName" to="." method="_on_LineEditName_text_entered"]
+[connection signal="text_entered" from="MarginContainer/MenuOptions/LineEditAddr" to="." method="_on_LineEditAddr_text_entered"]
+[connection signal="pressed" from="MarginContainer/MenuOptions/ButtonJoinGame" to="." method="_on_ButtonJoinGame_pressed"]
+[connection signal="pressed" from="MarginContainer/MenuOptions/ButtonHostGame" to="." method="_on_ButtonHostGame_pressed"]
+[connection signal="pressed" from="MarginContainer/MenuOptions/ButtonStartGame" to="." method="_on_ButtonStartGame_pressed"]
